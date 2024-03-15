@@ -1,0 +1,116 @@
+body{
+padding: 0;
+margin: 0;
+}
+.navbar {
+  background-color: #202c48;
+  padding: 10px;
+}
+
+.navbar-list {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar-item {
+  display: inline-block;
+  margin-right: 20px;
+}
+
+.navbar-link {
+  color: white;
+  text-decoration: none;
+}
+
+.navbar-link:hover {
+  color: lightgray;
+}
+
+
+/* project details */
+.center{
+  text-align: center;
+}
+.project-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.project {
+  width: 600px;
+  margin: 10px;
+  padding: 20px;
+  border: 1px solid #26282a;
+  border-radius: 5px;
+  background-color: #dfcece;
+}
+
+/* form */
+.form-container{
+  position: absolute;
+  top:50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  border:2px solid gray;
+  padding:15px;
+  background-color: #bcebef;
+  height: 350px ;
+  width: 480px;
+}
+
+.form-container form >div{
+  margin-top: 10px;
+}
+label {
+  display: block; /* Make labels block-level for easier styling */
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="date"],
+textarea {
+  width: calc(100% - 20px);
+   /* Make text inputs and textareas fill the available width minus the padding */
+  padding: 8px; /* Add some padding */
+  border: 1px solid #ccc; /* Add a border */
+  border-radius: 3px; /* Add some border-radius */
+  box-sizing: border-box; 
+  /* /Ensure that padding and border are included in the width */
+}
+
+form >button {
+  width: calc(100% - 10px);
+  /* Make the button fill the available width minus the padding */
+  padding: 10px; /* Add some padding */
+  border: none; /* Remove the border */
+  border-radius: 3px; /* Add some border-radius */
+  background-color: #7498be; /* Set a background color */
+  color: #fff; /* Set text color */
+  cursor: pointer; /* Add a pointer cursor */
+  margin: 10px 0px;
+}
+
+button:hover {
+  background-color: #0056b3; /* Change background color on hover */
+}
+
+.deletebtn{
+  padding: 15px;
+  background-color: #cd5d5d;
+  color: #fff; /* Set text color */
+  cursor: pointer; /* Add a pointer cursor */
+  margin: 10px 0px;
+  border-radius: 4px;
+}
+.updatebtn{
+  padding: 15px;
+  background-color: #3c657e;
+  color: #fff; /* Set text color */
+  cursor: pointer; /* Add a pointer cursor */
+  margin: 10px 5px;
+  border-radius: 4px;
+
+}
