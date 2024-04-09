@@ -49,7 +49,7 @@ const UpdateProject = () => {
   };
   const getSingleProject = async () => {
     try {
-      const response = await axios.get(`/api/getProject/${id}`,{headers:{Authorization:`Bearer ${token}`}});
+      const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/getProject/${id}`,{headers:{Authorization:`Bearer ${token}`}});
       if (response.data) {
         const project = response.data.project;
 
