@@ -3,7 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContex";
 const Navbar = () => {
   const navigate = useNavigate();
-  const { setAuth } = useAuth();
+  const { auth,setAuth } = useAuth();
   const handleLogout = () => {
     setAuth({
       user: "",
@@ -25,6 +25,9 @@ const Navbar = () => {
             <Link to="/addProject" className="navbar-link">
               AddProject
             </Link>
+          </li>
+          <li className="navbar-item">
+              <span className="login-user">{auth.user.name}</span>
           </li>
           <li className="navbar-item">
             <button onClick={handleLogout}>Logout</button>

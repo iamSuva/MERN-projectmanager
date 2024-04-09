@@ -33,7 +33,8 @@ console.log(token);
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post("/api/auth/login", formData);
+      const response = await axios.post(`${process.env.REACT_APP_API_URL}/api/auth/login`, formData);
+
       console.log("response ",response.data);
       if (response.data.success) {
        // toast.success("sign up successful");
@@ -43,7 +44,11 @@ console.log(token);
           token:response.data.token
         });
         localStorage.setItem("loginUser",JSON.stringify(response.data));
-        navigate("/home");
+        toast.success("Successful login");
+        setTimeout(()=>{
+          navigate("/home");
+
+        },2000)
         
       }
     } catch (error) {

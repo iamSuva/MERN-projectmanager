@@ -16,7 +16,7 @@ const Project = ({ project, myDelete }) => {
     console.log(confirmed);
     if (confirmed) {
       try {
-        const response = await axios.delete(`/api/deleteProject/${id}`, {
+        const response = await axios.delete(`${process.env.REACT_APP_API_URL}/api/deleteProject/${id}`, {
           headers: { Authorization: `Bearer ${token}` },
         });
         const data = response.data;

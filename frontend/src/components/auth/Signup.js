@@ -16,13 +16,15 @@ const navigate=useNavigate();
   };
 
   const handleSubmit = async(e) => {
+    console.log(process.env.REACT_APP_API_URL);
+    console.log(formData);
     e.preventDefault();
     try {
-        const response=await axios.post("/api/auth/register",formData);
+        const response=await axios.post(`${process.env.REACT_APP_API_URL}/api/auth/register`,formData);
         if(response.data.success)
         {
             toast.success("sign up successful");
-            navigate("/login");
+            navigate("/");
         }
     } catch (error) {
         console.log(error);

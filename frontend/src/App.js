@@ -1,6 +1,6 @@
 import React from 'react'
 import Navbar from './components/Navbar'
-import { Routes,Route } from 'react-router-dom'
+import { Routes,Route,Navigate } from 'react-router-dom'
 import Homepage from './components/Homepage'
 import AddProject from './components/AddProject.js'
 import UpdateProject from './components/UpdateProject.js'
@@ -11,9 +11,10 @@ const App = () => {
     <div>
     
        <Routes>
+           
+          <Route exact path='/register' element={<Signup/>}/>
           <Route exact path='/' element={<Login/>}/>
           <Route exact path='/home' element={<Homepage/>}/>
-          <Route exact path='/register' element={<Signup/>}/>
           <Route exact path='/addProject' element={<AddProject/>}/>
           <Route exact path='/updateProject/:id' element={<UpdateProject/>}/>
           

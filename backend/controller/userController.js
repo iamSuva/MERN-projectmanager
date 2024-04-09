@@ -7,27 +7,31 @@ import jwt from "jsonwebtoken";
 
 export const registerController = async (req, res) => {
   try {
-    const { name, email, password } = req.body;
-    console.log(name+" "+email);
-    if (!name || !email || !password) {
+    const { username, email, password } = req.body;
+    console.log(req.body);
+    if (!username || !email || !password) {
+      console.log("heee");
       return res.status(400).send({
         success: false,
         message: "missing field",
       });
     }
-    const existinguser = await userModel.findOne({ email });
+    const existinguser = await userModel.findOne({email:email });
+    console.log("exist",existinguser);
     if (existinguser) {
       return res
         .status(200)
         .send({ success: false, message: "Already resgisted please login " });
     }
     const hashedpassword = await generateHashedPassword(password);
+    console.log("hashed pass ",hashedpassword);
     const userdata = {
-      name: name,
+      name: username,
       email: email,
       password: hashedpassword,
     };
     const user = await userModel.create(userdata);
+    console.log("sign up user",user);
     if (user) {
       return res.status(200).send({
         message: "sign up successfull",
@@ -53,8 +57,10 @@ export const loginController = async (req, res) => {
     }
 
     const user = await userModel.findOne({ email });
-    if (!user) {
-      return res.status(404).status({
+    if (!user){
+      console.log("my user ",user);
+   
+      return res.status(404).send({
         message: "user not found",
         success: false,
       });
@@ -62,7 +68,7 @@ export const loginController = async (req, res) => {
     const isValidPassword = comparehashedPassword(password, user.password);
 
     if (!isValidPassword) {
-      return res.status(400).status({
+      return res.status(400).send({
         message: "password invalid",
         success: false,
       });

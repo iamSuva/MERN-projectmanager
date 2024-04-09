@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import Layout from "./Layout";
 import { useAuth } from "../context/AuthContex";
+
 const AddProject = () => {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
@@ -13,6 +14,7 @@ const AddProject = () => {
   const navigate = useNavigate();
   const { auth, setAuth } = useAuth();
   const token = auth?.token;
+
   useEffect(() => {
     if (!token) {
       navigate("/");
@@ -28,7 +30,7 @@ const AddProject = () => {
         developer: developer,
         deadline: deadline,
       };
-      const response = await axios.post("/api/addProject", newProject, {
+      const response = await axios.post(`${process.env.REACT_APP_API_URL}/api/addProject`, newProject, {
         headers: { Authorization: `Bearer ${token}` },
       });
       const data = response.data;

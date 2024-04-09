@@ -30,7 +30,7 @@ const UpdateProject = () => {
       };
 
       const response = await axios.put(
-        `/api/updateProject/${id}`,
+        `${process.env.REACT_APP_API_URL}/api/updateProject/${id}`,
         updatedProject,
         { headers: { Authorization: `Bearer ${token}` } }
       );

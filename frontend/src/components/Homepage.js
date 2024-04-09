@@ -21,11 +21,11 @@ const Homepage = () => {
 
   const getProjects = async () => {
     try {
-      const response = await axios.get("/api/getProjects", {
+      const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/getProjects`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       const data = response.data;
-      console.log(data);
+      console.log("allprojects",data);
       if (data.success) {
         // console.log(data.projects);
         setProjects(data.projects);
